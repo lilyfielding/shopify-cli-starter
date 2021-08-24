@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preload" href="{{ 'global.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'global.js' | asset_url }}" as="script">
+
+    <title>{{ page_title | escape }}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ 'global.css' | asset_url | stylesheet_tag }}
+
+    <!-- header hook for Shopify plugins -->
+    {{ content_for_header }}
+  </head>
+
+  <body>
+    <div {% unless request.page_type == 'captcha' %}id="app"{% endunless %}>
+      {% section 'header' %}
+
+      <main id="main" role="main">
+        {% section 'about' %}
+        {% section 'image-text' %}
+        {% section 'sample-section' %}
+        {{ content_for_layout }}
+      </main>
+
+      {% section 'footer' %}
+    </div>
+
+    <!-- webpack bundle -->
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>

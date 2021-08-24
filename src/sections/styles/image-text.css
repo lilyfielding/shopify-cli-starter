@@ -1,0 +1,4 @@
+.section__image-text {
+  @apply bg-black;
+  @apply text-blue-400;
+}

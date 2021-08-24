@@ -1,0 +1,23 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Shopify Theme Lab",
+    "theme_version": "1.0.0",
+    "theme_author": "THEME_AUTHOR",
+    "theme_documentation_url": "https://THEME_DOCUMENTATION_URL.com",
+    "theme_support_url": "https://THEME_SUPPORT_URL.com"
+  },
+  {
+    "name": "t:settings_schema.custom_settings.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.custom_settings.settings.header"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.custom_settings.settings.paragraph"
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+<div class="about">
+  <h1>Hello this is the {{ section.settings.heading }} section! Hopefully this works. If not we'll just try again!</h1>
+  <p>Hey!</p>
+</div>
+
+{% schema 'about' %}
+{{ 'about.section.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'about.section.js' | asset_url }}" defer="defer"></script>

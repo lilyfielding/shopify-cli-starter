@@ -1,0 +1,7 @@
+<div class="container">
+  <h1 class="text-4xl">{{ section.settings.text }}</h1>
+</div>
+
+{% schema 'image-text' %}
+{{ 'image-text.section.css' | asset_url | stylesheet_tag }}
+{{ 'image-text.section.js' | asset_url | script_tag }}
