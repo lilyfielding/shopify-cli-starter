@@ -7,6 +7,16 @@ A blank theme to get you started with Shopify theme dev, featuring TailwindCSS. 
 * Each section file in Dawn imports its own JS and CSS files. This means that the browser is only rendering the styles and scripts necessary for this section, improving not just site performance but also the customizer experience for merchants.
 * The concept for this starter was to enable a similar **"section first"** approach to theme development. Each section has a corresponding JS and CSS file, which get compiled to the `/assets` directory. The minifyed assets are then imported into the section using the [asset_url](https://shopify.dev/api/liquid/filters/html-filters) filter.
 
+## Getting Started
+1. Ensure you have the following prerequisites installed:
+    * [Ruby v2.7+](https://www.ruby-lang.org/en/)
+    * [Shopify CLI v2+](https://shopify.dev/themes/tools/cli/installation)
+    * [Node.js v14+](https://nodejs.org/en/)
+2. Run `shopify login --store <your-store.myshopify.com>`
+3. Clone this repo or enter the following command: `shopify theme init -u https://github.com/lilyfielding/shopify-cli-starter.git`
+4. Run `npm install`
+5. Run `npm run start`
+
 ## File Structure
 ```
 shopify-cli-starter/
@@ -105,13 +115,3 @@ shopify-cli-starter/
   {{ 'hero.section.css' | asset_url | stylesheet_tag }}
   {{ 'hero.section.js' | asset_url | script_tag }}
   ```
-  
-## Getting Started
-1. Ensure you have the following prerequisites installed:
-    * [Ruby v2.7+](https://www.ruby-lang.org/en/)
-    * [Shopify CLI v2+](https://shopify.dev/themes/tools/cli/installation)
-    * [Node.js v14+](https://nodejs.org/en/)
-2. Run `shopify login --store <your-store.myshopify.com>`
-3. Clone this repo or enter the following command: `shopify theme init -u https://github.com/lilyfielding/shopify-cli-starter.git`
-4. Run `npm install`
-5. Run `npm run start`
