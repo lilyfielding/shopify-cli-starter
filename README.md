@@ -115,3 +115,25 @@ shopify-cli-starter/
   {{ 'hero.section.css' | asset_url | stylesheet_tag }}
   {{ 'hero.section.js' | asset_url | script_tag }}
   ```
+
+## Disabling
+* Currently the starter is still kind of a WIP, and while I do want to pursue a dev strategy that's as close as possible to what Shopify expects, I haven't had chance to test this on a real project yet – so I can't yet vouch for how performant this idea will be.
+* If you give this a go but find this section-first approach isn't working out, you can disable the above by deleting the following from `./.config/webpack/webpack.common.js`:
+   ```
+   const path = require("path");
+   const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+   const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+   const LiquidSchemaPlugin = require("liquid-schema-plugin");
+
+   <!--   Delete this line     -->
+   const sectionEntries = require("./utils/getSections");
+
+   module.exports = {
+     stats: "minimal",
+     entry: {
+       global: path.resolve(__dirname, "../../src/global.js"),
+       <!--      And this line      -->
+       ...sectionEntries(),
+     },
+   ```
+* You can then simply import all of your stylesheets into `global.css` rather than splitting them out by section.
